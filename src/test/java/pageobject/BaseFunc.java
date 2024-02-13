@@ -15,7 +15,6 @@ public class BaseFunc {
     public BaseFunc() {
         browser = new ChromeDriver();
         browser.manage().window().maximize();
-
         wait = new WebDriverWait(browser, Duration.ofSeconds(5));
     }
 
