@@ -14,7 +14,7 @@ import java.util.List;
 
 public class WebShopTests {
     private final By ACCEPT_COOKIES_BTN = By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll");
-    private final  String SECTION = "Instrumenti";
+    private final  String SECTION = "Mebeles";
     private final By MENU_ITEM = By.xpath(".//li[contains(@class, 'submenu-lvl1__list-item--has-child')]//a");
     private final By MENU = By.xpath(".//div[contains(@class, 'submenu-lvl1--index')]");
     @Test
@@ -27,7 +27,7 @@ public class WebShopTests {
         WebElement acceptBtn = browser.findElement(ACCEPT_COOKIES_BTN);
         acceptBtn.click();
 
-        //find necessary section (Instrumenti)
+        //find necessary section (Mebeles)
         WebElement menuBlock = browser.findElement(MENU);
         List<WebElement> items = menuBlock.findElements(MENU_ITEM);
         boolean isSectionFound = false;

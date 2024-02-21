@@ -2,7 +2,9 @@ package pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,6 +15,8 @@ public class BaseFunc {
     private WebDriverWait wait;
 
     public BaseFunc() {
+        ChromeOptions options = new ChromeOptions();
+
         browser = new ChromeDriver();
         browser.manage().window().maximize();
         wait = new WebDriverWait(browser, Duration.ofSeconds(5));
@@ -28,5 +32,8 @@ public class BaseFunc {
     }
     public void click(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+    public WebElement findElement(By locator) {
+      return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 }

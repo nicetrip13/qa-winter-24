@@ -11,7 +11,7 @@ public class InternetShopPagesTest {
 
         HomePage homePage = new HomePage(baseFunc);
         homePage.acceptCookies();
-//        homePage.selectMenuItem("Instrumenti");
+        homePage.selectMenuItem("Mebeles");
     }
 
     public void openURL(){
