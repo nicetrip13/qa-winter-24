@@ -17,7 +17,7 @@ public class SubcategoriesPage {
         //TODO add flag here & assertions after the loop
         boolean isNameFound = false;
         for (WebElement we : baseFunc.findElements(SUBCATEGORY_NAME)) {
-            if (we.getText().equals(SUBCATEGORY_NAME)) {
+            if (we.getText().equals(subcategoryName)) {
                 isNameFound = true;
                 we.click();
                 break;
