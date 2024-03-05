@@ -24,7 +24,7 @@ public class HomePage {
 
     public void selectMenuItem(String menuItemName) {
         WebElement menuBlock = baseFunc.findElement(MENU);
-        List<WebElement> items = menuBlock.findElements(MENU_ITEM);
+        List<WebElement> items = menuBlock.findElements(MENU_ITEM); //must be refactored
         boolean isSectionFound = false;
         for (WebElement we : items) {
             if (we.getText().equals(menuItemName)) {
