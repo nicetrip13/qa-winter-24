@@ -15,6 +15,7 @@ public class InternetShopPagesTest {
         homePage.selectMenuItem("Mēbeles");
         SubcategoriesPage subcategoriesPage = new SubcategoriesPage(baseFunc);
         subcategoriesPage.selectSubcategory("Guļamistaba");
+        subcategoriesPage.selectSubcategory("Plaukti");
     }
 
 }
