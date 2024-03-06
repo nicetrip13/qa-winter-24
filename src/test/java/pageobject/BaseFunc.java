@@ -52,4 +52,15 @@ public class BaseFunc {
         executor.executeScript("arguments[0].scrollIntoView(true);", we);
         executor.executeScript("window scrollBy(0, 500);");
     }
+    public void waitForText (By locator, String text) {
+        wait.until(ExpectedConditions.textToBe(locator, text));
+    }
+    public void typeText(By locator, String text) {
+     WebElement input = findElement(locator);
+     input.clear();
+     input.sendKeys(text);
+    }
+    public void pressEnter(By locator) {
+        findElement(locator).sendKeys(Keys.ENTER);
+    }
 }
