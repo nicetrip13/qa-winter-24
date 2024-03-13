@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Collections;
 import java.util.List;
 
 public class BaseFunc {
@@ -16,6 +17,8 @@ public class BaseFunc {
 
     public BaseFunc() {
         ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("useAutomationExtension", false);
+        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enableAutomation"));
 
         browser = new ChromeDriver();
         browser.manage().window().maximize();
@@ -59,6 +62,15 @@ public class BaseFunc {
      WebElement input = findElement(locator);
      input.clear();
      input.sendKeys(text);
+    }
+    public void typeTextInCustomField(By locator, String text) {
+    WebElement input = findElement(locator);
+    hardClick(input);
+
+    input.sendKeys(Keys.CONTROL + "a");
+    input.sendKeys(Keys.DELETE);
+    input.sendKeys(text);
+
     }
     public void pressEnter(By locator) {
         findElement(locator).sendKeys(Keys.ENTER);
