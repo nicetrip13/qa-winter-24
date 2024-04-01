@@ -51,12 +51,18 @@ public class BaseFunc {
     public List<WebElement> findElements(By locator) {
        return browser.findElements(locator);
     }
+    public List<WebElement> findElements(WebElement parent, By locator) {
+        return wait.until(ExpectedConditions.visibilityOf(parent)).findElements(locator);
+    }
     public void scrollToElement(WebElement we) {
         executor.executeScript("arguments[0].scrollIntoView(true);", we);
         executor.executeScript("window scrollBy(0, 500);");
     }
     public void waitForText (By locator, String text) {
         wait.until(ExpectedConditions.textToBe(locator, text));
+    }
+    public void waitForContainingText(By locator,String text) {
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(locator,text));
     }
     public void typeText(By locator, String text) {
      WebElement input = findElement(locator);
@@ -74,5 +80,8 @@ public class BaseFunc {
     }
     public void pressEnter(By locator) {
         findElement(locator).sendKeys(Keys.ENTER);
+    }
+    public String getText(WebElement parent, By locator) {
+        return wait.until(ExpectedConditions.visibilityOf(parent)).findElement(locator).getText();
     }
 }

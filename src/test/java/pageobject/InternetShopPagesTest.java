@@ -20,7 +20,7 @@ public class InternetShopPagesTest {
         subcategoriesPage.selectSubcategory("Plaukti");
 
         CatalogPage catalogPage = new CatalogPage(baseFunc);
-        catalogPage.setPriceFilter(25,100);
+        catalogPage.setPriceFilter(25.0,100.0);
 
     }
 
