@@ -43,8 +43,8 @@ public class CatalogPage {
                 String price = baseFunc.getText(product, DISCOUNT_PRICE).replaceAll(",", ".").replaceAll(" €", "");
                 actualPrices.add(Double.valueOf(price));
             }
-            return actualPrices;
         }
+        return actualPrices;
     }
 
 }
