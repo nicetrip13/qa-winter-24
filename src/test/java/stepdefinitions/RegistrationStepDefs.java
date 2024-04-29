@@ -10,6 +10,7 @@ public class RegistrationStepDefs {
     private BaseFunc baseFunc;
     private HomePage homePage;
     private LoginPage loginPage;
+
     @Given("user name: {string}")
     public void setUserName(String firstName) {
 
@@ -28,7 +29,7 @@ public class RegistrationStepDefs {
     }
     @When("we open browser window")
     public void openBrowserWindow() {
-        BaseFunc baseFunc = new BaseFunc();
+        baseFunc = new BaseFunc();
     }
     @When("open home page")
     public void openHomePage() {
