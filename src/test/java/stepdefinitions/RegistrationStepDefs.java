@@ -12,41 +12,41 @@ public class RegistrationStepDefs {
     private LoginPage loginPage;
 
     @Given("user name: {string}")
-    public void setUserName(String firstName) {
+    public void set_user_name(String firstName) {
 
     }
     @Given("user lastname {string}")
-    public void setUserLastName(String lastName) {
+    public void set_user_last_name(String lastName) {
 
     }
     @Given("user email: {string}")
-    public void setEmail(String email){
+    public void set_email(String email){
 
     }
     @Given("new password is {string}")
-    public void setPassword(String password) {
+    public void set_password(String password) {
 
     }
     @When("we open browser window")
-    public void openBrowserWindow() {
+    public void open_browser_window() {
         baseFunc = new BaseFunc();
     }
     @When("open home page")
-    public void openHomePage() {
+    public void open_home_page() {
         baseFunc.openURL("1a.lv");
         homePage = new HomePage(baseFunc);
     }
     @When("we accept cookies")
-    public void acceptCookies() {
-     homePage.acceptCookies();
+    public void accept_cookies() {
+        homePage.acceptCookies();
     }
-    @When("we are pressing Registration - login btn")
-    public void openLoginPage() {
+    @When("we are pressing Registration/login btn")
+    public void open_login_page() {
         homePage.openLoginPage();
         loginPage = new LoginPage(baseFunc);
     }
     @When("we are opening registration form")
-    public void openRegistrationPage() {
+    public void open_registration_page() {
         loginPage.openRegistrationPage();
     }
 
