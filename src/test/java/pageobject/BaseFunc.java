@@ -1,5 +1,7 @@
 package pageobject;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,12 +16,14 @@ public class BaseFunc {
     private WebDriver browser;
     private WebDriverWait wait;
     private JavascriptExecutor executor;
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
 
     public BaseFunc() {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enableAutomation"));
 
+        LOGGER.info("Opening Web bowser");
         browser = new ChromeDriver();
         browser.manage().window().maximize();
         wait = new WebDriverWait(browser, Duration.ofSeconds(5));
@@ -30,6 +34,7 @@ public class BaseFunc {
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
 
+            LOGGER.info("Opening URL" + url);
             browser.get(url);
 
         }
@@ -41,7 +46,8 @@ public class BaseFunc {
         try {
             we.click();
         }catch (ElementClickInterceptedException e) {
-            System.out.println("can't perform click by Selenium");
+            LOGGER.warn("can't perform click by Selenium, using JS");
+            //System.out.println("can't perform click by Selenium");
             executor.executeScript("arguments[0].click();",we);
         }
     }
